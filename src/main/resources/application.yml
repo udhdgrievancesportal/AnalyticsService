@@ -1,0 +1,35 @@
+spring:
+  application:
+    name:ANALYTICS_SERVICE
+  datasource:
+    url: jdbc:postgresql://localhost:5432/analytics_db
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+#        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+server:
+  servlet:
+    context-path: /api
+  port: 8084
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    appname: ANALYTICS_SERVICE
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+logging:
+  level:
+    org.hibernate.orm.connections.pooling: WARN
+
